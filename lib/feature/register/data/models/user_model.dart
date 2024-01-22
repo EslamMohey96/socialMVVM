@@ -1,4 +1,4 @@
-class userModel {
+class UserModel {
   late String name;
   late String email;
   late String phone;
@@ -9,7 +9,7 @@ class userModel {
   late bool isEmailVerified;
 
 
-  userModel({
+  UserModel({
     required this.email,
     required this.uId,
     required this.name,
@@ -20,7 +20,7 @@ class userModel {
     required this.isEmailVerified,    
   });
 
-  userModel.fromJson(Map<String, dynamic>? json) {
+  UserModel.fromJson(Map<String, dynamic>? json) {
     name = json?['name'];
     email = json?['email'];
     phone = json?['phone'];

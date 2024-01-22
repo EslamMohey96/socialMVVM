@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:icon_broken/icon_broken.dart';
 import 'package:social/constants.dart';
 import 'package:social/core/utils/cacheHelper.dart';
+import 'package:social/feature/login/presentation/manager/login_cubit/login_cubit.dart';
 import 'package:social/feature/login/presentation/views/login_view.dart';
-import 'package:social/feature/social_layout/presentation/manager/login_cubit/login_cubit.dart';
+import 'package:social/feature/social_layout/presentation/manager/social_cubit/social_cubit.dart';
+import 'package:social/feature/social_layout/presentation/views/widgets/menu/profile/edit_profile.dart';
+import 'package:social/feature/social_layout/presentation/views/widgets/menu/settings_screen/settings.dart';
+
 
 class DrawerListTile extends StatelessWidget {
   const DrawerListTile({
@@ -26,7 +30,7 @@ class DrawerListTile extends StatelessWidget {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => editProfile()),
+              MaterialPageRoute(builder: (context) =>const EditProfile()),
             );
           },
         ),
@@ -63,7 +67,7 @@ class DrawerListTile extends StatelessWidget {
               'Settings'),
           onTap: () {
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => settings()),
+              MaterialPageRoute(builder: (context) => const UserSettings()),
             );
           },
         ),
@@ -114,7 +118,7 @@ class DrawerListTile extends StatelessWidget {
               );
             }).then((value) {
               LoginCubit.get(context).changeUIdDone = false;
-              socialCubit.get(context).currentIndex = 0;
+              SocialCubit.get(context).currentIndex = 0;
               Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(builder: (context) => const LoginView()),

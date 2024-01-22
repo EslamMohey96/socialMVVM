@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social/feature/social_layout/presentation/manager/social_cubit/social_cubit.dart';
 
 class UserAccountsHeader extends StatelessWidget {
   const UserAccountsHeader({super.key});
@@ -7,17 +8,17 @@ class UserAccountsHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return UserAccountsDrawerHeader(
       accountName: Text(
-        cubit.user_model!.name,
+         SocialCubit.get(context).userModel!.name,
         style: const TextStyle(color: Colors.black),
       ),
       accountEmail: Text(
-        cubit.user_model!.email,
+         SocialCubit.get(context).userModel!.email,
         style: const TextStyle(color: Colors.black),
       ),
       currentAccountPicture: CircleAvatar(
         radius: 50,
         backgroundImage: NetworkImage(
-          cubit.user_model!.image,
+           SocialCubit.get(context).userModel!.image,
         ),
       ),
       decoration: BoxDecoration(
@@ -26,7 +27,7 @@ class UserAccountsHeader extends StatelessWidget {
           topRight: Radius.circular(4),
         ),
         image: DecorationImage(
-          image: NetworkImage(cubit.user_model!.background),
+          image: NetworkImage( SocialCubit.get(context).userModel!.background),
           fit: BoxFit.fill,
         ),
       ),
